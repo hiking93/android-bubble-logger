@@ -1,0 +1,50 @@
+<resources>
+
+	<style name="AppTheme" parent="LightAppTheme" />
+
+	<style name="BaseLightAppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+		<item name="windowNoTitle">true</item>
+		<item name="windowActionBar">false</item>
+		<item name="windowActionModeOverlay">true</item>
+		<item name="android:statusBarColor">@android:color/transparent</item>
+		<item name="android:windowDrawsSystemBarBackgrounds">true</item>
+		<item name="colorPrimary">@color/primary_light</item>
+		<item name="colorOnPrimary">@android:color/white</item>
+		<item name="colorPrimaryVariant">@color/primary_variant_light</item>
+		<item name="colorSecondary">@color/secondary_light</item>
+		<item name="colorOnSecondary">@android:color/white</item>
+		<item name="colorSecondaryVariant">@color/secondary_variant_light</item>
+		<item name="appBarLayoutStyle">@style/Widget.MaterialComponents.AppBarLayout.Primary</item>
+		<item name="actionBarTheme">@style/ThemeOverlay.MaterialComponents.Dark.ActionBar</item>
+		<item name="actionBarStyle">@style/Widget.MaterialComponents.Light.ActionBar.Solid</item>
+		<item name="textInputStyle">
+			@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox
+		</item>
+	</style>
+
+	<style name="LightAppTheme" parent="BaseLightAppTheme">
+		<item name="android:navigationBarColor">@color/system_ui_overlay_dark</item>
+	</style>
+
+	<style name="DarkAppTheme" parent="Theme.MaterialComponents">
+		<item name="windowNoTitle">true</item>
+		<item name="windowActionBar">false</item>
+		<item name="windowActionModeOverlay">true</item>
+		<item name="android:statusBarColor">@android:color/transparent</item>
+		<item name="android:navigationBarColor">@android:color/transparent</item>
+		<item name="android:windowDrawsSystemBarBackgrounds">true</item>
+		<item name="colorPrimary">@color/primary_dark</item>
+		<item name="colorOnPrimary">@android:color/black</item>
+		<item name="colorPrimaryVariant">@color/primary_variant_dark</item>
+		<item name="colorSecondary">@color/secondary_dark</item>
+		<item name="colorOnSecondary">@android:color/black</item>
+		<item name="colorSecondaryVariant">@color/secondary_variant_dark</item>
+		<item name="appBarLayoutStyle">@style/Widget.MaterialComponents.AppBarLayout.Surface</item>
+		<item name="actionBarTheme">@style/ThemeOverlay.MaterialComponents.ActionBar.Surface</item>
+		<item name="actionBarStyle">@style/Widget.MaterialComponents.ActionBar.Surface</item>
+		<item name="textInputStyle">
+			@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox
+		</item>
+	</style>
+
+</resources>

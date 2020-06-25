@@ -1,0 +1,12 @@
+<resources>
+	<string name="app_name">Bubble Logger Example</string>
+	<string name="title_input_hint">Title</string>
+	<string name="message_input_hint">Message</string>
+	<string name="title_sample">Sample Title</string>
+	<string name="message_sample">This is a sample message.</string>
+	<string name="send_button_text">Send to bubble</string>
+	<string name="notification_channel_name">@string/app_name</string>
+	<string name="notification_channel_description">Channel for bubble logger popup.</string>
+	<string name="demo_mode_switch_text">Generate random logs</string>
+	<string name="customized_style_switch_text">Customized style</string>
+</resources>

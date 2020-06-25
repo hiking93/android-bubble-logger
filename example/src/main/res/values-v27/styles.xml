@@ -1,0 +1,8 @@
+<resources>
+
+	<style name="LightAppTheme" parent="BaseLightAppTheme">
+		<item name="android:windowLightNavigationBar">true</item>
+		<item name="android:navigationBarColor">@android:color/transparent</item>
+	</style>
+
+</resources>

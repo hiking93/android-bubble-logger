@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/rootLayout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:fitsSystemWindows="true"
+	tools:context=".MainActivity">
+
+	<com.google.android.material.appbar.AppBarLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:fitsSystemWindows="true">
+
+		<androidx.appcompat.widget.Toolbar
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:theme="?actionBarTheme"
+			app:popupTheme="?actionBarPopupTheme"
+			app:title="@string/app_name" />
+	</com.google.android.material.appbar.AppBarLayout>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:fillViewport="true"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+		<LinearLayout
+			android:id="@+id/contentLayout"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:padding="16dp">
+
+			<Switch
+				android:id="@+id/demoSwitch"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:switchPadding="8dp"
+				android:text="@string/demo_mode_switch_text" />
+
+			<Switch
+				android:id="@+id/customizedStyleSwitch"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:switchPadding="8dp"
+				android:text="@string/customized_style_switch_text" />
+
+			<com.google.android.material.textfield.TextInputLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:hint="@string/title_input_hint">
+
+				<com.google.android.material.textfield.TextInputEditText
+					android:id="@+id/titleEditText"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:imeOptions="actionNext"
+					android:inputType="text"
+					android:text="@string/title_sample" />
+			</com.google.android.material.textfield.TextInputLayout>
+
+			<com.google.android.material.textfield.TextInputLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:hint="@string/message_input_hint">
+
+				<com.google.android.material.textfield.TextInputEditText
+					android:id="@+id/messageEditText"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:imeOptions="actionSend"
+					android:inputType="text"
+					android:text="@string/message_sample" />
+			</com.google.android.material.textfield.TextInputLayout>
+
+			<Button
+				android:id="@+id/sendButton"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:text="@string/send_button_text" />
+		</LinearLayout>
+	</ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

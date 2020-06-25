@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="primary_light">#009688</color>
+	<color name="primary_variant_light">#00675b</color>
+	<color name="secondary_light">#2196f3</color>
+	<color name="secondary_variant_light">#0069c0</color>
+	<color name="primary_dark">#4db6ac</color>
+	<color name="primary_variant_dark">#82e9de</color>
+	<color name="secondary_dark">#64b5f6</color>
+	<color name="secondary_variant_dark">#9be7ff</color>
+	<color name="system_ui_overlay_dark">#8000</color>
+	<color name="system_ui_overlay_light">#dfff</color>
+	<color name="light_ui_legacy_fallback_background">#416275</color>
+</resources>

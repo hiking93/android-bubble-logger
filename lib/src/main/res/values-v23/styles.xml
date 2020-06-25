@@ -1,0 +1,9 @@
+<resources>
+
+	<style name="LightBubbleTheme" parent="BaseLightBubbleTheme">
+		<item name="android:statusBarColor">@android:color/transparent</item>
+		<item name="android:windowLightStatusBar">true</item>
+		<item name="android:navigationBarColor">@color/system_ui_overlay_dark</item>
+	</style>
+
+</resources>

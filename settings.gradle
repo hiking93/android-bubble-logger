@@ -1,0 +1,3 @@
+rootProject.name='android-bubble-logger'
+include ':example'
+include ':lib'
