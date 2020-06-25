@@ -26,7 +26,7 @@ To display logs in a bubble, you need Android version that supports [Bubble API]
 ![Filter](https://user-images.githubusercontent.com/3449834/85727691-d008c800-b729-11ea-900b-06d41d6c1287.png)
 ![Customized](https://user-images.githubusercontent.com/3449834/85727685-ced79b00-b729-11ea-8d45-0e6d8b59a615.png)
 
-## Add dependency
+## Add Dependency
 
 Add it in your root build.gradle at the end of repositories:
 
