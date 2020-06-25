@@ -3,12 +3,10 @@
 	package="com.hiking.bubblelogger">
 
 	<application>
-
 		<activity
 			android:name=".screen.BubbleActivity"
 			android:allowEmbedded="true"
 			android:documentLaunchMode="always"
-			android:label="@string/app_name"
 			android:resizeableActivity="true"
 			android:theme="@style/BubbleTheme" />
 	</application>

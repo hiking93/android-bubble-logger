@@ -1,5 +1,8 @@
 # Android Bubble Logger
 
+[![Build Status](https://travis-ci.org/hiking93/android-bubble-logger.svg?branch=master)](https://travis-ci.org/hiking93/android-bubble-logger)
+[![JitPack](https://jitpack.io/v/hiking93/android-bubble-logger.svg)](https://jitpack.io/#hiking93/android-bubble-logger)
+
 A tool for developers to display logs within device UI.
 
 ![Hero image](https://user-images.githubusercontent.com/3449834/82807940-6d6aa500-9ebb-11ea-865e-3ceb658ad13b.png)

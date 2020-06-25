@@ -6,12 +6,14 @@ import android.content.Intent
 import android.os.Build
 import androidx.annotation.Dimension
 import androidx.annotation.DrawableRes
+import androidx.annotation.Keep
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.Person
 import androidx.core.graphics.drawable.IconCompat
 import com.hiking.bubblelogger.screen.BubbleActivity
 
+@Keep
 object BubbleLogger {
 
     fun log(
