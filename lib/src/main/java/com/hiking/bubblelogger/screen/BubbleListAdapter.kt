@@ -40,11 +40,11 @@ internal class BubbleListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
                 override fun areItemsTheSame(
                     oldItemPosition: Int,
                     newItemPosition: Int
-                ) = run {
+                ): Boolean {
                     val oldItem = oldItems!![oldItemPosition]
                     val newItem = newItems!![newItemPosition]
-                    if (oldItem::class != newItem::class) return@run false
-                    when (newItem) {
+                    if (oldItem::class != newItem::class) return false
+                    return when (newItem) {
                         is Item.Log -> newItem.log.id == (oldItem as Item.Log).log.id
                     }
                 }
@@ -52,9 +52,9 @@ internal class BubbleListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
                 override fun areContentsTheSame(
                     oldItemPosition: Int,
                     newItemPosition: Int
-                ) = run {
+                ): Boolean {
                     val oldItem = oldItems!![oldItemPosition]
-                    when (val newItem = newItems!![newItemPosition]) {
+                    return when (val newItem = newItems!![newItemPosition]) {
                         is Item.Log -> {
                             oldItem as Item.Log
                             newItem.filterStrings == filterStrings &&

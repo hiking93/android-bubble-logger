@@ -13,9 +13,25 @@ import androidx.core.app.Person
 import androidx.core.graphics.drawable.IconCompat
 import com.hiking.bubblelogger.screen.BubbleActivity
 
+/**
+ * Main library class for bubble logger.
+ */
 @Keep
 object BubbleLogger {
 
+    /**
+     * Add a log to bubble.
+     *
+     * @param context Context for the bubble notification.
+     * @param title The title text of the og.
+     * @param message The message text of the log.
+     * @param notificationId The ID for the bubble notification.
+     * @param notificationChannelId The channel ID for the bubble notification.
+     * @param adaptiveBubbleIconResource
+     * Adaptive icon resource for Android 11 (R, API 30) or later.
+     * @param legacyBubbleIconResource Legacy icon resource for Android 10 (Q, API 29).
+     * @param notificationIconResource Icon resource for bubble notification.
+     */
     fun log(
         context: Context,
         title: CharSequence?,

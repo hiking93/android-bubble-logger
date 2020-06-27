@@ -7,12 +7,21 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+/**
+ * [ViewModel] for [MainActivity].
+ */
 class MainViewModel : ViewModel() {
 
     var demoLogListener: ((title: String, message: String) -> Unit)? = null
 
     private var demoJob: Job? = null
 
+    /**
+     * Update demo mode state.
+     *
+     * @param context Context for resources.
+     * @param isEnabled Set demo mode enabled or not.
+     */
     fun updateDemoMode(context: Context, isEnabled: Boolean) {
         demoJob?.cancel()
         if (!isEnabled) return

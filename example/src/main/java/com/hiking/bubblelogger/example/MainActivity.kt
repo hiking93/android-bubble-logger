@@ -9,13 +9,18 @@ import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import com.hiking.bubblelogger.BubbleLogger
 import com.hiking.bubblelogger.example.extension.applyEdgeToEdge
 import com.hiking.bubblelogger.example.extension.dpToPxSize
 import kotlinx.android.synthetic.main.activity_main.*
 
+/**
+ * Homepage of the example app.
+ */
 class MainActivity : AppCompatActivity() {
 
     companion object {
@@ -51,7 +56,9 @@ class MainActivity : AppCompatActivity() {
             contentLayout.updatePadding(
                 bottom = insets.systemWindowInsetBottom + 16f.dpToPxSize(v.context)
             )
-            insets.replaceSystemWindowInsets(0, insets.systemWindowInsetTop, 0, 0)
+            WindowInsetsCompat.Builder(insets)
+                .setSystemWindowInsets(Insets.of(0, insets.systemWindowInsetTop, 0, 0))
+                .build()
         }
     }
 

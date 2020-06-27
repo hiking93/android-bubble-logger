@@ -6,7 +6,9 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.TooltipCompat
+import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Observer
@@ -19,6 +21,9 @@ import com.hiking.bubblelogger.extension.applyEdgeToEdge
 import com.hiking.bubblelogger.extension.clearFocusAndHideIme
 import kotlinx.android.synthetic.main.activity_bubble.*
 
+/**
+ * [AppCompatActivity] for bubble content.
+ */
 class BubbleActivity : AppCompatActivity() {
 
     private val viewModel: BubbleViewModel by viewModels()
@@ -47,11 +52,61 @@ class BubbleActivity : AppCompatActivity() {
             recyclerView.updatePadding(
                 bottom = insets.systemWindowInsetBottom
             )
-            insets.replaceSystemWindowInsets(0, insets.systemWindowInsetTop, 0, 0)
+            WindowInsetsCompat.Builder(insets)
+                .setSystemWindowInsets(Insets.of(0, insets.systemWindowInsetTop, 0, 0))
+                .build()
         }
     }
 
     private fun setupViews() {
+        setupFilterViews()
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
+        recyclerView.apply {
+            adapter = this@BubbleActivity.adapter
+            layoutManager = this@BubbleActivity.layoutManager
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    updateScrollToTopButton()
+                }
+            })
+        }
+        setupRecyclerViewTouchListener()
+        setupScrollControls()
+    }
+
+    private fun setupRecyclerViewTouchListener() {
+        recyclerView.setOnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    isScrollingManually = true
+                    filterEditText.clearFocusAndHideIme()
+                    v.isPressed = true
+                }
+                MotionEvent.ACTION_UP -> {
+                    isScrollingManually = false
+                    v.performClick()
+                    v.isPressed = false
+                }
+            }
+            false
+        }
+    }
+
+    private fun setupScrollControls() {
+        scrollToTopButton.apply {
+            TooltipCompat.setTooltipText(this, contentDescription)
+            setOnClickListener {
+                it.visibility = View.GONE
+                scrollToTop()
+            }
+        }
+    }
+
+    private fun setupFilterViews() {
         filterEditText.doOnTextChanged { text, _, _, _ ->
             adapter.filterStrings = text.toString().trim().split("\\s".toRegex())
             updateEmptyState()
@@ -67,34 +122,6 @@ class BubbleActivity : AppCompatActivity() {
             TooltipCompat.setTooltipText(this, contentDescription)
             setOnClickListener {
                 BubbleDataHelper.clearLogs()
-            }
-        }
-        recyclerView.apply {
-            adapter = this@BubbleActivity.adapter
-            layoutManager = this@BubbleActivity.layoutManager
-            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-            addOnScrollListener(object : RecyclerView.OnScrollListener() {
-
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    updateScrollToTopButton()
-                }
-            })
-            setOnTouchListener { _, event ->
-                when (event.action) {
-                    MotionEvent.ACTION_DOWN -> {
-                        isScrollingManually = true
-                        filterEditText.clearFocusAndHideIme()
-                    }
-                    MotionEvent.ACTION_UP -> isScrollingManually = false
-                }
-                false
-            }
-        }
-        scrollToTopButton.apply {
-            TooltipCompat.setTooltipText(this, contentDescription)
-            setOnClickListener {
-                it.visibility = View.GONE
-                scrollToTop()
             }
         }
     }

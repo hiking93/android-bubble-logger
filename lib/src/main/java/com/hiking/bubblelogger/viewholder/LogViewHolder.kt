@@ -14,12 +14,18 @@ import kotlinx.android.synthetic.main.list_item_log.view.*
 import java.text.DateFormat
 import java.util.*
 
+/**
+ * [RecyclerView.ViewHolder] for a log in the bubble.
+ */
 class LogViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     companion object {
 
         private val dateFormat = DateFormat.getDateTimeInstance()
 
+        /**
+         * Create an instance of [LogViewHolder].
+         */
         fun create(parent: ViewGroup) = LogViewHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.list_item_log, parent, false)
@@ -30,6 +36,13 @@ class LogViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val contentTextView = itemView.contentTextView
     private val timeTextView = itemView.timeTextView
 
+    /**
+     * Bind data to this [LogViewHolder].
+     * @param title Title of the log.
+     * @param content Content of the log.
+     * @param timestamp Timestamp of the log.
+     * @param filterStrings Filter strings for text highlighting.
+     */
     fun bind(
         title: CharSequence?,
         content: CharSequence,
@@ -47,8 +60,8 @@ class LogViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private fun CharSequence?.highlightedWith(
         filterStrings: List<String>
     ) = SpannableStringBuilder(this).apply {
-        filterStrings.forEach { filterString ->
-            val startIndex = indexOf(filterString).also { if (it == -1) return@forEach }
+        for (filterString in filterStrings) {
+            val startIndex = indexOf(filterString).let { if (it == -1) null else it } ?: continue
             val endIndex = startIndex + filterString.length
             setSpan(
                 StyleSpan(Typeface.BOLD),
