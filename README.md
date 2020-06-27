@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/hiking93/android-bubble-logger.svg?branch=master)](https://travis-ci.org/hiking93/android-bubble-logger)
 [![JitPack](https://jitpack.io/v/hiking93/android-bubble-logger.svg)](https://jitpack.io/#hiking93/android-bubble-logger)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/c81779120b3f4bf295722b27886493d1)](https://www.codacy.com/manual/hiking93/android-bubble-logger?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hiking93/android-bubble-logger&amp;utm_campaign=Badge_Grade)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d4af1e818beda48e37d1/maintainability)](https://codeclimate.com/github/hiking93/android-bubble-logger/maintainability)
 
 A tool to display logs within a floating bubble.
 
