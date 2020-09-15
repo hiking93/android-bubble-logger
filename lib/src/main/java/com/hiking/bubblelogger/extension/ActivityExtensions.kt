@@ -9,7 +9,7 @@ import android.view.View
  */
 fun Activity.applyEdgeToEdge() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-        window.setDecorFitsSystemWindows(true)
+        window.setDecorFitsSystemWindows(false)
     } else {
         window.decorView.apply {
             @Suppress("DEPRECATION")
